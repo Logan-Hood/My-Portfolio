@@ -80,8 +80,8 @@ button:focus {
 /* Load Punk Kid Font */
 @font-face {
     font-family: "Punk Kid";
-    src: url("PunkKid.woff2") format("woff2"),
-         url("PunkKid.woff") format("woff");
+    src: url("./fonts/PunkKid.woff2") format("woff2"),
+         url("./fonts/PunkKid.woff") format("woff");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
