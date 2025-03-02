@@ -150,14 +150,9 @@ function adjustAnimation() {
             start: "top bottom", // Start animation when the section enters the viewport
             end: "bottom top", // End animation when the section leaves the viewport
             scrub: false, // Disable scrubbing to prevent interference
-            invalidateOnRefresh: true, // Recalculate animation on resize
-            markers: false // Set to true for debugging (shows start/end markers)
-        },
-        // Use requestAnimationFrame for smoother animations
-        onUpdate: function() {
-            requestAnimationFrame(() => {
-                this.progress(); // Force update on every frame
-            });
+            once: true, // Ensures ScrollTrigger initializes only once
+            refreshPriority: -1, // Prevents ScrollTrigger from interfering with GSAP animations
+            markers: false // Set to true for debugging
         }
     });
 }
@@ -165,4 +160,5 @@ function adjustAnimation() {
 // Run on page load and resize
 adjustAnimation();
 window.addEventListener("resize", adjustAnimation);
+
 
