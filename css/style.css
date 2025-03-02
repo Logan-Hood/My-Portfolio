@@ -1,325 +1,156 @@
-/* Basic reset */
+/* General Styles */
+:root {
+    /* Colors */
+    --primary-yellow: #EBBA0F;
+    --primary-green: #00FF00;
+    --primary-magenta: #FF00FF;
+    --primary-pink: #FF007F;
+    --primary-cyan: #00FFFF;
+    --primary-cyan: #007FFF;
+    --primary-orange: #FF6600;
+    --primary-red: #BE0000;
+
+    --text-color: #fff;
+    --background-color: #000;
+
+    /* Fonts */
+    --font-header: "Punk Kid", sans-serif; /* Main header font */
+    --font-secondary-header: "Permanent Marker", cursive; /* Secondary header font */
+    --font-body: "Permanent Marker", cursive; /* Body and paragraph font */
+    --font-button: "Bangers", cursive; /* Button font */
+}
+
+/* Main headers (e.g., H1) */
+h1 {
+    font-family: var(--font-header);
+    font-size: clamp(2.7rem, 6vw, 4.5rem); /* Scales from mobile to desktop */
+    font-weight: lighter;
+}
+
+/* Secondary headers (e.g., H2, H3, etc.) */
+h2, h3, h4, h5, h6 {
+    font-family: var(--font-secondary-header);
+}
+
+/* Body text (paragraphs, general content) */
+body, p {
+    font-family: var(--font-body);
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 1.5;
+    padding: 5vw; 
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Buttons */
+button {
+    font-family: var(--font-button);
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px; /* Slight rounding for better UX */
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Button Hover Effects */
+button:hover {
+    outline: 2px solid var(--primary-green);
+    transform: scale(1.05); /* Slight pop-out effect */
+}
+
+button:focus {
+    outline: 2px solid var(--primary-cyan);
+    outline-offset: 2px;
+    border-radius: 125px;
+}
+
+/* Reset styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Navigation bar styling */
-nav {
-    background-color: #000;
-    padding: 16px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
-
-nav h1 a {
-    font-family: 'Punk Kid', sans-serif;
-    font-size: 64px;
-    color: #fff;
-    text-decoration: none;
-}
-
-.nav-links {
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.nav-links li {
-    margin: 10px 15px;
-}
-
-.nav-links li a {
-    color: white;
-    text-decoration: none;
-    font-family: "Permanent Marker", serif;
-    font-size: 36px;
-    padding: 5px 10px;
-    transition: color 0.3s ease;
-}
-
-/* Hamburger menu styling */
-.hamburger {
-    display: none;
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 10px;
-}
-
-.hamburger-box {
-    width: 30px;
-    height: 24px;
-    display: inline-block;
-    position: relative;
-}
-
-.hamburger-inner {
-    width: 100%;
-    height: 3px;
-    background-color: white;
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: background-color 0.3s ease;
-}
-
-.hamburger-inner::before,
-.hamburger-inner::after {
-    content: '';
-    width: 100%;
-    height: 3px;
-    background-color: white;
-    position: absolute;
-    left: 0;
-    transition: transform 0.3s ease;
-}
-
-.hamburger-inner::before {
-    top: -10px;
-}
-
-.hamburger-inner::after {
-    top: 10px;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    nav h1 a {
-        font-size: 64px;
-    }
-    
-    .hamburger {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 80px;
-        left: 0;
-        background-color: #000;
-        text-align: center;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        margin: 15px 0;
-    }
-
-    .nav-links li a {
-        font-size: 24px;
-    }
-}
-
-@media (max-width: 448px) {
-    nav h1 a {
-        font-size: 48px;
-    }
-    
-    .hamburger {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 80px;
-        left: 0;
-        background-color: #000;
-        text-align: center;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        margin: 15px 0;
-    }
-
-    .nav-links li a {
-        font-size: 24px;
-    }
-}
-
-/* Hover effects */
-nav ul li a:hover {
-    color: #fff;
-}
-
-nav ul li:nth-child(1) a:hover {
-    border: #EBBA0F 3px solid;
-    border-radius: 175px;
-    margin: 4px;
-}
-
-nav ul li:nth-child(2) a:hover {
-    border: #FF00FF 3px solid;
-    border-radius: 175px;
-    margin: 4px;
-
-}
-
-nav ul li:nth-child(3) a:hover {
-    border: #00FF00 3px solid;
-    border-radius: 175px;
-    margin: 4px;
-
-}
-
-nav ul li:nth-child(4) a:hover {
-    border: #BE0000 3px solid;
-    border-radius: 175px;
-    margin: 4px;
-
-}
-
-nav ul li:nth-child(5) a:hover {
-    border: #EBBA0F 3px solid;
-    border-radius: 175px;
-    margin: 4px;
-
-}
-
-
-
-/* Font styles */
-.permanent-marker-regular {
-    font-family: "Permanent Marker", serif;
-    font-weight: normal;
-    font-style: normal;
-}
-
-.bangers-regular {
-    font-family: "Bangers", serif;
-    font-weight: normal;
-    font-style: normal;
-}
-
-h1 {
-    font-family: 'Punk Kid', sans-serif;
-    font-size: 72px;
-    color: #fff;
-    font-weight: lighter;
-}
-
-h2 {
-    font-family: "Permanent Marker", serif;
-    font-size: 48px;
-    font-style: normal;
-    color: #fff;
-}
-
-h3 {
-    font-family: "Bangers", serif;
-    font-size: 36px;
-    font-style: normal;
-    color: #fff;
-}
-
-/* Punk Kid Font */
-.your-style {
-    font-family: 'Punk Kid';
-    font-weight: normal;
-    font-style: normal;
-}
-
+/* Load Punk Kid Font */
 @font-face {
-    font-family: 'Punk Kid';
-    src: url('PunkKid.woff2') format('woff2'),
-        url('PunkKid.woff') format('woff');
+    font-family: "Punk Kid";
+    src: url("PunkKid.woff2") format("woff2"),
+         url("PunkKid.woff") format("woff");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
-
-footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: #000;
-    color: white;
-}
-
-footer ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 16px;
-}
-
-footer ul li {
-    list-style: none;
-    margin: 16px;
-}
-
-footer ul li a {
-    font-family: "Bangers", serif;
-    font-size: 36px;
-    border: #fff 3px solid;
-    border-radius: 175px;
-    color: #fff;
-    background-color: black;
-    text-decoration: none;
+.container {
+    width: 100%;
+    max-width: 1200px; /* Prevents it from being too wide on large screens */
+    margin: 0 auto; /* Centers the content */
     padding: 16px;
 }
 
-footer section {
-    margin: 64px;
+.grid-layout {
+    display: grid;
+    gap: var(--grid-gap, 16px);
+    grid-template-columns: repeat(var(--grid-columns, 1), 1fr);
 }
 
-footer section p {
-    font-family: "Bangers", serif;
-    font-size: 24px;
+@media (min-width: 768px) {
+    body {
+        font-size: 18px;
+        padding: 3vw;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    button {
+        width: auto; /* Buttons don’t need full width on larger screens */
+        padding: 14px 24px;
+    }
+
+    .grid-layout {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2-column layout for tablets */
+        gap: 16px;
+    }
 }
 
-/* Hover effects */
-footer ul li a:hover {
-    color: #fff;
-}
+@media (min-width: 1024px) {
+    body {
+        font-size: 20px;
+        padding: 2vw;
+    }
 
-footer ul li:nth-child(1) a:hover {
-    border: #EBBA0F 3px solid;
-    border-radius: 175px;
-}
+    .container {
+        max-width: 1400px;
+    }
 
-footer ul li:nth-child(2) a:hover {
-    border: #FF00FF 3px solid;
-    border-radius: 175px;
-}
-
-footer ul li:nth-child(3) a:hover {
-    border: #00FF00 3px solid;
-    border-radius: 175px;
-}
-
-footer ul li:nth-child(4) a:hover {
-    border: #BE0000 3px solid;
-    border-radius: 175px;
-}
-
-footer ul li:nth-child(5) a:hover {
-    border: #EBBA0F 3px solid;
-    border-radius: 175px;
+    .grid-layout {
+        grid-template-columns: repeat(3, 1fr); /* 3-column layout for desktops */
+        gap: 20px;
+    }
 }
 
 
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 
 
@@ -338,83 +169,403 @@ footer ul li:nth-child(5) a:hover {
 
 
 
+/* General Styles */
+body {
+    background: black;
+    color: white;
+    font-family: 'Bangers', sans-serif;
+    text-align: center;
+}
 
+body.menu-open {
+    overflow: hidden; /* Prevent scrolling when menu is open */
+}
 
+/* NAVBAR */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
 
+/* Hamburger Button */
+.nav-toggle {
+    font-size: 48px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-.homepage {
-    background-color: #000;
+/* NAV MENU */
+.nav-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9); /* Slightly transparent black */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    transition: left 0.4s ease-in-out;
+    z-index: 1000; /* Ensure it's above the hero section */
 }
 
-@media (max-width: 768px) {
-    .homepage {width: 100%;}
+/* Show menu */
+.nav-menu.open {
+    left: 0;
 }
 
-@media (max-width: 480px) {
-    .homepage {width: 100%;}
+/* Close Button */
+.nav-close {
+    position: absolute;
+    top: 36px;
+    right: 36px;
+    font-size: 48px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    animation: colorChange 10s infinite;
+    text-align: end;
+}
+
+/* Color Changing Animation for 'X' Button */
+@keyframes colorChange {
+    0% { color: #fff; }
+    25% { color: #FF00FF; }
+    50% { color: #00FF00; }
+    75% { color: #BE0000; }
+    100% { color: #EBBA0F; }
+}
+
+
+/* NAV LINKS */
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-menu li {
+    margin: 15px 0;
+    font-family: var(--font-secondary-header);
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid;
+    border-radius: 125px;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    width: 225px;
+    font-size: 28px;
+}
+
+.yellow { border-color: #EBBA0F; }
+.purple { border-color: #FF00FF; }
+.green { border-color: #00FF00; }
+.red { border-color: #BE0000; }
+
+/* Tablet Styles */
+@media (min-width: 768px) {
+    .nav-toggle {
+        font-size: 48px; /* Slightly larger hamburger icon */
+    }
+
+    .nav-menu {
+        width: 100%; /* Reduce menu width for tablets */
+        left: -100%; /* Adjust starting position */
+    }
+
+    .nav-menu.open {
+        left: 0;
+    }
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+    .nav-toggle {
+        display: none; /* Hide hamburger menu on desktop */
+    }
+
+    header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        height: 50px;
+    }
+
+    .nav-menu {
+        position: static; /* Reset fixed positioning */
+        width: auto; /* Reset width */
+        height: auto; /* Reset height */
+        background: transparent; /* Remove overlay background */
+        flex-direction: row; /* Display links horizontally */
+        justify-content: flex-end; /* Align links to the right */
+        transition: none; /* Remove transition */
+    }
+
+    .nav-menu ul {
+        display: flex; /* Display links in a row */
+        gap: 20px; /* Add spacing between links */
+    }
+
+    .nav-menu li {
+        margin: 0; /* Remove vertical margin */
+    }
+
+    .nav-close {
+        display: none; /* Hide close button on desktop */
+    }
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid transparent; /* Transparent border by default */
+    border-radius: 125px;
+    width: 225px;
+    font-size: 28px;
+    text-decoration: none;
+    color: white;
+    transition: border-color 0.3s ease, background 0.3s ease; /* Smooth transitions */
+}
+
+/* Hover effect for all buttons */
+.btn:hover {
+    background: rgba(255, 255, 255, 0.1); /* Slight white background on hover */
+}
+
+/* Specific hover border colors for each button class */
+.yellow:hover {
+    border-color: #EBBA0F; /* Yellow border on hover */
+}
+
+.purple:hover {
+    border-color: #FF00FF; /* Magenta border on hover */
+}
+
+.green:hover {
+    border-color: #00FF00; /* Lime border on hover */
+}
+
+.red:hover {
+    border-color: #BE0000; /* Red border on hover */
+}
 }
 
 
 
-/* Default Styles (Desktop) */
-.hero h1 {
-    font-size: 96px;
+
+
+
+
+
+
+
+
+
+
+
+
+/* Footer Styles */
+footer {
+    background: black;
+    padding: 16px;
     text-align: center;
-    margin-top: 200px;
-    margin-bottom: 200px;
+    border-top: 2px solid rgba(255, 255, 255, 0.1); /* Subtle top border */
+}
+
+.footer-buttons {
+    display: grid;
+    gap: 4px; /* Smaller gap for mobile */
+    margin-top: 16px;
+    margin-bottom: 4px; /* Space between buttons and footer text */
+    width: 50%; /* Reduce width to 50% */
+    margin-left: auto; /* Center the container */
+    margin-right: auto; /* Center the container */
+}
+
+/* Mobile: 2x2 Grid */
+.footer-buttons {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+}
+
+/* Footer Button Styles */
+.footer-btn {
+    display: inline-block;
+    padding: 8px; /* Smaller padding for mobile */
+    border: 2px solid transparent; /* Transparent border by default */
+    border-radius: 175px;
+    font-size: 16px; /* Smaller font size for mobile */
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    transition: border-color 0.3s ease, background 0.3s ease; /* Smooth transitions */
+}
+
+.footer-btn.yellow {
+    border-color: #FF6600; 
+}
+
+.footer-btn.cyan {
+    border-color: #00FFFF; 
+}
+
+.footer-btn.pink {
+    border-color: #FF007F; 
+}
+
+.footer-btn.orange {
+    border-color: #007FFF; 
+}
+
+/* Hover effect for footer buttons */
+.footer-btn:hover {
+    background: rgba(255, 255, 255, 0.1); /* Slight white background on hover */
+}
+
+/* Specific hover border colors for each footer button */
+.footer-btn.yellow:hover {
+    border-color: #FF6600; /* Yellow border on hover */
+}
+
+.footer-btn.cyan:hover {
+    border-color: #00FFFF; /* Cyan border on hover */
+}
+
+.footer-btn.pink:hover {
+    border-color: #FF007F; /* Pink border on hover */
+}
+
+.footer-btn.orange:hover {
+    border-color: #007FFF; /* Orange border on hover */
+}
+
+/* Footer Text */
+.footer-text {
+    font-size: 14px; /* Smaller font size for mobile */
+    color: white;
+    margin-top: 20px; /* Space between buttons and text */
+}
+
+/* Tablet: 1x4 Grid */
+@media (min-width: 768px) {
+    .footer-buttons {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns */
+        gap: 16px; /* Slightly larger gap for tablet */
+    }
+
+    .footer-btn {
+        padding: 10px 20px; /* Larger padding for tablet */
+        font-size: 18px; /* Larger font size for tablet */
+    }
+
+    .footer-text {
+        font-size: 16px; /* Larger font size for tablet */
+    }
+}
+
+/* Desktop: 1x4 Grid */
+@media (min-width: 1024px) {
+    .footer-buttons {
+        gap: 20px; /* Larger gap for desktop */
+    }
+
+    .footer-btn {
+        padding: 12px 24px; /* Larger padding for desktop */
+        font-size: 28px; /* Larger font size for desktop */
+    }
+
+    .footer-text {
+        font-size: 18px; /* Larger font size for desktop */
+    }
+    .footer-btn.yellow {
+        border-color: #fff; 
+    }
+    
+    .footer-btn.cyan {
+        border-color: #fff; 
+    }
+    
+    .footer-btn.pink {
+        border-color: #fff; 
+    }
+    
+    .footer-btn.orange {
+        border-color: #fff; 
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Mobile-First Styles (Default) */
+.hero h1 {
+    font-size: 48px; /* Smaller font size for mobile */
+    text-align: center;
+    margin-top: 80px; /* Smaller margin for mobile */
+    margin-bottom: 80px; /* Smaller margin for mobile */
     color: white;
     font-family: 'Punk Kid', sans-serif;
-    line-height: 1.2;
-    max-width: 90vw; /* Prevent text from overflowing */
+    line-height: 1.1; /* Tighter line height for mobile */
+    max-width: 95vw; /* Prevent text from overflowing */
     word-wrap: break-word;
     white-space: normal;
     padding: 0 20px; /* Add padding to prevent edge cutoff */
 }
 
-/* Tablet (max-width: 1024px) */
-@media (max-width: 1024px) {
+/* Small Tablets & Large Phones (min-width: 480px) */
+@media (min-width: 480px) {
     .hero h1 {
-        font-size: 80px; /* Reduce font size */
-        margin-top: 120px;
-        margin-bottom: 120px;
+        font-size: 64px; /* Increase font size */
+        margin-top: 100px; /* Increase margin */
+        margin-bottom: 100px; /* Increase margin */
+        max-width: 90vw;
+        line-height: 1.15; /* Slightly looser line height */
+    }
+}
+
+/* Tablets (min-width: 768px) */
+@media (min-width: 768px) {
+    .hero h1 {
+        font-size: 80px; /* Increase font size */
+        margin-top: 120px; /* Increase margin */
+        margin-bottom: 120px; /* Increase margin */
         max-width: 85vw;
     }
 }
 
-/* Small Tablets & Large Phones (max-width: 768px) */
-@media (max-width: 768px) {
+/* Desktop (min-width: 1024px) */
+@media (min-width: 1024px) {
     .hero h1 {
-        font-size: 64px;
-        margin-top: 100px;
-        margin-bottom: 100px;
+        font-size: 96px; /* Largest font size for desktop */
+        margin-top: 200px; /* Largest margin for desktop */
+        margin-bottom: 200px; /* Largest margin for desktop */
         max-width: 90vw;
-        line-height: 1.15; /* Improve spacing */
-    }
-}
-
-/* Mobile Phones (max-width: 480px) */
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: 48px; /* Reduce font size */
-        margin-top: 80px;
-        margin-bottom: 80px;
-        max-width: 95vw;
-        line-height: 1.1;
+        line-height: 1.2; /* Looser line height for desktop */
     }
 }
 
@@ -439,71 +590,80 @@ footer ul li:nth-child(5) a:hover {
 
 
 
-
-
-
-
-
-/* Intro Section Styling */
+/* Mobile-First Styles (Default) */
 .intro-section {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column-reverse; /* Stack sections vertically on mobile */
     align-items: center;
     color: white;
     font-family: 'Permanent Marker', serif;
-    width: 65%;
-    margin: 32px auto;
-    gap: 40px;
+    width: 100%;
+    margin: 20px auto;
+    gap: 20px;
+    padding: 0 20px; /* Add padding to prevent edge cutoff */
 }
+
 
 .section1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    flex: 1;
-    margin: 32px;
+    gap: 20px;
+}
+
+.section2 {
+    text-align: center; /* Center text on mobile */
 }
 
 .text-content {
-    flex: 1;
     max-width: 100%;
-    text-align: left;
+}
+
+.intro-title,
+.intro-subtitle,
+.intro-description {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    line-height: 1; /* Tighten line height */
 }
 
 .intro-title {
-    font-size: 56px;
-    margin: 0;
+    font-size: 36px; /* Smaller font size for mobile */
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
+    line-height: 1; /* Tighten line height */
     font-weight: normal;
 }
 
 .intro-subtitle {
-    font-size: 44px;
-    margin-bottom: 0;
+    font-size: 24px; /* Smaller font size for mobile */
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
+    line-height: 1; /* Tighten line height */
     font-weight: normal;
 }
 
 .intro-description {
-    font-size: 32px;
+    font-size: 18px; /* Smaller font size for mobile */
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
+    line-height: 1; /* Tighten line height */
     font-weight: normal;
 }
 
 /* Social Icons */
 .social-icons {
     display: flex;
-    flex-direction: row;
-    gap: 32px;
-    margin-top: 40px;
+    gap: 20px; /* Smaller gap for mobile */
+    margin-top: 20px;
 }
 
 .social-icons a img {
-    width: 50px;
+    width: 40px; /* Smaller icons for mobile */
 }
 
 /* Button Styling */
 .btn-container {
-    height: 250px;
     position: relative;
     display: inline-block;
 }
@@ -517,9 +677,9 @@ footer ul li:nth-child(5) a:hover {
     background: none;
     color: white;
     padding: 10px 20px;
-    width: 250px;
+    width: 200px; /* Smaller button for mobile */
     font-family: "Bangers", serif;
-    font-size: 36px;
+    font-size: 24px; /* Smaller font size for mobile */
     border-radius: 100px;
     cursor: pointer;
     display: block;
@@ -527,6 +687,19 @@ footer ul li:nth-child(5) a:hover {
     position: relative;
     z-index: 2;
 }
+
+.contact-btn {
+    animation: colorChange 3s infinite; /* Color-changing animation */
+}
+
+@keyframes colorChange {
+    0% { background-color: #000; }
+    25% { background-color: #00FF00; }
+    50% { background-color: #FF007F; }
+    75% { background-color: #00FFFF; }
+    100% { background-color: #EBBA0F; }
+}
+
 
 .contact-btn:hover {
     background-color: #EBBA0F;
@@ -567,101 +740,123 @@ footer ul li:nth-child(5) a:hover {
     margin-top: 110px;
 }
 
-/* Tablet Styles (max-width: 768px) */
-@media (max-width: 768px) {
+
+/* Tablet Styles (min-width: 768px) */
+@media (min-width: 768px) {
     .intro-section {
+        flex-direction: row; /* Side-by-side layout for tablet */
+        justify-content: space-between;
         width: 100%;
-
     }
 
-    .btn-container {
-        height: 250px; /* Remove fixed height */
-    }
-
-    .duplicate-btn {
-        display: block; /* Show duplicates by default */
-        opacity: 0; /* Hide initially */
-        animation: fadeInOut 3s infinite; /* Animation for duplicates */
-    }
-
-
-
-    .duplicate-btn.one {
-        animation-delay: 1s;
-    }
-
-    .duplicate-btn.two {
-        animation-delay: 2s;
-    }
-
-    .duplicate-btn.three {
-        animation-delay: 3s;
-    }
-
-    @keyframes fadeInOut {
-        0%, 100% { opacity: 0; }
-        50% { opacity: 1; }
-    }
-}
-
-/* Mobile Styles (max-width: 480px) */
-@media (max-width: 480px) {
-    .intro-section {
-        flex-direction: column-reverse;
-        width: 100%;
-        max-width: 100vw; /* Prevents overflow */
-        overflow: hidden; /* Ensures no extra spacing */
-        gap: 20px;
-    }
-
-    .intro-title {
-        font-size: 48px;
-    }
-
-    .intro-subtitle {
-        font-size: 36px;
-    }
-
-    .intro-description {
-        font-size: 24px;
-    }
-
-    .section1, .section2 {
-        margin: 0 auto; /* Center content properly */
-        max-width: 100%; /* Ensures nothing exceeds the screen width */
-        overflow: hidden; /* Prevents anything from going beyond the viewport */
+    .section1 {
+        flex: 1;
+        margin: 32px;
     }
 
     .section2 {
-        margin: 32px;
-    }
-    .btn-container {
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%; /* Ensure the button stays within bounds */
+        flex: 2;
+        text-align: left; /* Align text to the left for tablet */
     }
 
-    .social-icons {
-        margin-top: 20px;
-        flex-wrap: wrap; /* Prevents overflow */
-        justify-content: center;
+    .intro-title {
+        font-size: 48px; /* Larger font size for tablet */
+    }
+
+    .intro-subtitle {
+        font-size: 36px; /* Larger font size for tablet */
+    }
+
+    .intro-description {
+        font-size: 24px; /* Larger font size for tablet */
+    }
+
+    .social-icons a img {
+        width: 50px; /* Larger icons for tablet */
     }
 
     .contact-btn {
-        animation: colorChange 3s infinite; /* Color-changing animation */
-    }
-
-    @keyframes colorChange {
-        0% { background-color: #000; }
-        25% { background-color: #00FF00; }
-        50% { background-color: #FF007F; }
-        75% { background-color: #00FFFF; }
-        100% { background-color: #EBBA0F; }
+        width: 250px; /* Larger button for tablet */
+        font-size: 36px; /* Larger font size for tablet */
     }
 }
 
+/* Desktop Styles (min-width: 1024px) */
+@media (min-width: 1024px) {
+    .intro-section {
+        width: 80%; /* Narrower width for desktop */
+    }
+
+.section1 {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 120px;
+}
+
+    .intro-title {
+        font-size: 56px; /* Largest font size for desktop */
+    }
+
+    .intro-subtitle {
+        font-size: 44px; /* Largest font size for desktop */
+    }
+
+    .intro-description {
+        font-size: 32px; /* Largest font size for desktop */
+    }
+
+    .social-icons a img {
+        width: 60px; /* Largest icons for desktop */
+    }
+
+
+    .contact-btn {
+        width: 250px; /* Largest button for desktop */
+        font-size: 36px; /* Largest font size for desktop */
+    }
+
+    @keyframes colorChange {
+        100% { background-color: #000; }
+    }
+
+    .contact-btn:hover {
+        background-color: #EBBA0F;
+    }
+
+    /* Duplicate Buttons */
+.duplicate-btn {
+    border: 3px solid white;
+    color: white;
+    background-color: #EBBA0F;
+    padding: 10px 20px;
+    width: 250px;
+    font-family: "Bangers", serif;
+    font-size: 36px;
+    border-radius: 100px;
+    display: none;
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+    text-align: center;
+}
+
+.duplicate-btn.one {
+    background-color: #00FF00;
+    top: 50px;
+    margin-top: 20px;
+}
+
+.duplicate-btn.two {
+    background-color: #FF007F;
+    top: 100px;
+    margin-top: 40px;
+}
+
+.duplicate-btn.three {
+    background-color: #00FFFF;
+    top: 100px;
+    margin-top: 110px;
+}}
 
 
 
@@ -678,6 +873,12 @@ footer ul li:nth-child(5) a:hover {
 
 
 
+
+
+
+
+
+/* Mobile-First Styles (Default) */
 .recent-projects {
     display: flex;
     flex-direction: column;
@@ -685,37 +886,36 @@ footer ul li:nth-child(5) a:hover {
     text-align: center;
     color: white;
     font-family: 'Permanent Marker', serif;
+    padding: 20px; /* Add padding for better spacing */
 }
 
 .section-title {
+    font-size: 36px; /* Smaller font size for mobile */
+    margin-top: 60px; /* Reduced margin for mobile */
     margin-bottom: 32px;
-    margin-top: 100px; /* Reduced margin for better spacing */
-    font-size: 48px; /* Adjusted font size for better readability */
 }
 
 .project-gallery {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px; /* Reduced gap for better spacing */
-    width: 100%; /* Ensure gallery takes full width */
+    flex-direction: column; /* Stack items vertically on mobile */
+    align-items: center;
+    gap: 20px; /* Reduced gap for mobile */
+    width: 100%;
 }
 
 .project-item {
     position: relative;
-    width: 263px; /* Fixed width for desktop */
-    height: 850px; /* Fixed height for desktop */
-    margin-bottom: 32px; /* Reduced margin for better spacing */
+    width: 100%; /* Full width on mobile */
+    max-width: 293px; /* Limit maximum width */
+    height: auto; /* Auto height for better responsiveness */
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
 }
 
 .project-img {
     width: 100%;
-    height: 100%;
-    max-height: 750px;
-    object-fit: fill;
+    height: 50%; /* Auto height for better responsiveness */
+    object-fit: cover;
     display: block;
 }
 
@@ -727,11 +927,12 @@ footer ul li:nth-child(5) a:hover {
     height: 100%;
     background: white;
     color: black;
-    border: solid 5px; 
-    border-radius: 175px; 
+    border: solid 5px;
+    border-radius: 175px; /* Smaller border radius for mobile */
     display: flex;
     flex-direction: column;
-    align-items: center; /* Vertically center content */
+    align-items: center;
+    justify-content: center;
     opacity: 0;
     transform: scale(0.9);
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
@@ -739,21 +940,42 @@ footer ul li:nth-child(5) a:hover {
 
 .popup-image {
     width: 100%;
-    height: 50%; 
-    object-fit: top;
-    border-top-left-radius: 175px;
-    border-top-right-radius: 175px;
-
+    height: 50%;
+    object-fit: cover;
+    border-top-left-radius: 175px; /* Smaller border radius for mobile */
+    border-top-right-radius: 175px; /* Smaller border radius for mobile */
 }
 
+/* Pop-Up Content Styles */
 .popup-content {
-    width: 100%; 
-    padding: 8px; 
+    width: 90%; /* Increase width to take up more space */
+    height: 50%;
+    padding: 8px; /* Reduced padding */
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    gap: 8px; /* Reduced gap between elements */
 }
+
+.popup-content h1 {
+    font-family: 'Punk Kid', sans-serif;
+    font-size: 24px; /* Smaller font size for mobile */
+    font-weight: lighter;
+    color: #000;
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
+}
+
+.popup-content p {
+    font-size: 14px; /* Smaller font size for mobile */
+    font-family: 'Permanent Marker', sans-serif;
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
+    text-align: center;
+    width: 100%; /* Ensure text takes up full width */
+}
+
 
 .project-item:hover .project-popup {
     opacity: 1;
@@ -766,39 +988,25 @@ footer ul li:nth-child(5) a:hover {
 }
 
 .project-item:nth-child(2) .project-popup {
-    border-color: #BE0000; /* Red for WIP */
+    border-color: #FF007F; /* Red for WIP */
 }
 
 .project-item:nth-child(3) .project-popup {
-    border-color: #EBBA0F; /* Blue for Reef Life Foundation */
+    border-color: #EBBA0F; /* Yellow for Reef Life Foundation */
 }
 
-
-.project-popup h1 {
-    font-family: 'Punk Kid', sans-serif;
-    font-size: 36px; /* Adjusted font size */
-    font-weight: lighter;
-    color: #000;
-    margin-bottom: 16px; /* Added margin for better spacing */
-}
-
-.project-popup p {
-    font-size: 18px; /* Adjusted font size */
-    font-family: 'Permanent Marker', sans-serif;
-    margin-bottom: 20px;
-}
 
 .learn-more {
     font-family: "Bangers", serif;
-    font-size: 24px; /* Adjusted font size */
+    font-size: 18px; /* Smaller font size for mobile */
     font-weight: bold;
     text-align: center;
-    padding: 10px;
-    width: 80%;
+    padding: 8px 16px;
+    width: 80%; /* Adjust button width */
     background: #fff;
     color: #000;
     border: 3px solid #000;
-    border-radius: 100px;
+    border-radius: 200px;
     text-decoration: none;
     transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
@@ -808,62 +1016,94 @@ footer ul li:nth-child(5) a:hover {
     color: #fff;
 }
 
-/* Tablet Styles (max-width: 768px) */
-@media (max-width: 768px) {
+/* Tablet Styles (min-width: 768px) */
+@media (min-width: 768px) {
     .section-title {
-        font-size: 36px; /* Smaller font size for tablet */
-        margin-top: 80px; /* Reduced margin for tablet */
+        font-size: 48px; /* Larger font size for tablet */
+        margin-top: 80px; /* Increased margin for tablet */
     }
 
     .project-gallery {
-        gap: 20px; /* Reduced gap for tablet */
+        flex-direction: row; /* Side-by-side layout for tablet */
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px; /* Increased gap for tablet */
     }
 
     .project-item {
-        width: 263px; /* Two items per row on tablet */
-        height: auto; /* Auto height for better responsiveness */
+        width: 300px;
+        height: auto;
     }
 
-    .project-popup h1 {
-        font-size: 28px; /* Smaller font size for tablet */
+    .project-popup {
+        border-radius: 175px; /* Larger border radius for tablet */
     }
 
-    .project-popup p {
-        font-size: 16px; /* Smaller font size for tablet */
+    .popup-image {
+        border-top-left-radius: 175px; /* Larger border radius for tablet */
+        border-top-right-radius: 175px; /* Larger border radius for tablet */
+    }
+
+    .popup-content {
+        width: 90%; /* Increase width for tablet */
+        gap: 12px; /* Slightly larger gap for tablet */
+    }
+
+    .popup-content h1 {
+        font-size: 28px; /* Larger font size for tablet */
+    }
+
+    .popup-content p {
+        font-size: 16px; /* Larger font size for tablet */
     }
 
     .learn-more {
-        font-size: 20px; /* Smaller font size for tablet */
+        font-size: 20px; /* Larger font size for tablet */
+        width: 70%; /* Adjust button width for tablet */
     }
+
 }
 
-/* Mobile Styles (max-width: 480px) */
-@media (max-width: 480px) {
+/* Desktop Styles (min-width: 1024px) */
+@media (min-width: 1024px) {
     .section-title {
-        font-size: 28px; /* Smaller font size for mobile */
-        margin-top: 60px; /* Reduced margin for mobile */
+        font-size: 56px; /* Largest font size for desktop */
+        margin-top: 100px; /* Largest margin for desktop */
     }
 
     .project-gallery {
-        flex-direction: column; /* Stack items vertically on mobile */
-        gap: 20px; /* Reduced gap for mobile */
+        gap: 60px; /* Largest gap for desktop */
     }
 
     .project-item {
-        width: 100%; /* Full width with some padding on mobile */
-        height: auto; /* Auto height for better responsiveness */
+        width: 350px; /* Three items per row on desktop */
     }
 
-    .project-popup h1 {
-        font-size: 24px; /* Smaller font size for mobile */
+    .project-popup {
+        border-radius: 175px; /* Largest border radius for desktop */
     }
 
-    .project-popup p {
-        font-size: 14px; /* Smaller font size for mobile */
+    .popup-image {
+        border-top-left-radius: 175px; /* Largest border radius for desktop */
+        border-top-right-radius: 175px; /* Largest border radius for desktop */
+    }
+
+    .popup-content {
+        width: 90%; /* Increase width for desktop */
+        gap: 16px; /* Slightly larger gap for desktop */
+    }
+
+    .popup-content h1 {
+        font-size: 36px; /* Larger font size for desktop */
+    }
+
+    .popup-content p {
+        font-size: 18px; /* Larger font size for desktop */
     }
 
     .learn-more {
-        font-size: 18px; /* Smaller font size for mobile */
+        font-size: 24px; /* Larger font size for desktop */
+        width: 60%; /* Adjust button width for desktop */
     }
 }
 
@@ -887,6 +1127,21 @@ footer ul li:nth-child(5) a:hover {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Mobile-First Styles (Default) */
 .skills-section {
     display: flex;
     flex-direction: column;
@@ -895,49 +1150,39 @@ footer ul li:nth-child(5) a:hover {
     margin-top: 32px;
     margin-bottom: 80px;
     text-align: center;
+    width: 100%; /* Ensure the container takes full width */
+    overflow: hidden; /* Prevents images from expanding the screen */
 }
 
 .skills-section h1 {
     margin-bottom: 32px;
+    font-size: 36px; /* Smaller font size for mobile */
 }
 
 .skill-img {
-    width: 750px;
+    width: 100%; /* Full width on mobile */
+    max-width: 750px; /* Limit maximum width */
     height: auto;
 }
 
+/* Tablet Styles (min-width: 768px) */
+@media (min-width: 768px) {
+    .skills-section h1 {
+        font-size: 48px; /* Larger font size for tablet */
+    }
 
-
-/* Tablet Styles (max-width: 768px) */
-@media (max-width: 768px) {
     .skill-img {
-        width: 750px; /* Reduce image size */
+        width: 750px; /* Fixed width for tablet */
     }
-
-    .skills-section {
-        position: relative;
-        overflow: hidden; /* Prevents images from expanding the screen */
-        width: 100%; /* Ensures the container does not expand */
-        max-width: 100vw; /* Ensures it doesn't grow beyond the viewport width */
-        text-align: center;
-    }
-    
 }
 
-
-
-
-/* Mobile Styles (max-width: 480px) */
-@media (max-width: 480px) {
-    .skill-img {
-        width: 750px; /* Reduce image size */
+/* Desktop Styles (min-width: 1024px) */
+@media (min-width: 1024px) {
+    .skills-section h1 {
+        font-size: 56px; /* Largest font size for desktop */
     }
 
-    .skills-section {
-        position: relative;
-        overflow: hidden; /* Prevents images from expanding the screen */
-        width: 100%; /* Ensures the container does not expand */
-        max-width: 100vw; /* Ensures it doesn't grow beyond the viewport width */
-        text-align: center;
+    .skill-img {
+        width: 750px; /* Fixed width for desktop */
     }
 }
