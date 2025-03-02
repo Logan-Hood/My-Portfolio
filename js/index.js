@@ -123,34 +123,46 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-function adjustAnimation() {
-    let movementRange = window.innerWidth <= 768 ? 250 : 500;
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
 
-    // Kill any existing animation before starting a new one
+// Function to adjust animation based on screen width
+function adjustAnimation() {
+    let movementRange = window.innerWidth <= 768 ? 250 : 500; // Reduce range on tablets and mobile
+
+    // Clear existing animations to prevent conflicts
     gsap.killTweensOf(".skill-img");
 
-    // Set initial position outside of the viewport
+    // Start images at negative movement range
     gsap.set(".skill-img", { x: -movementRange });
 
-    // Animate images smoothly back and forth
+    // Create the animation
     gsap.to(".skill-img", {
         x: movementRange,
         duration: 6,
         yoyo: true,
         repeat: -1,
         ease: "power1.inOut",
-        stagger: 1.5
+        stagger: 1.5,
+        // Prevent the animation from being affected by scroll or touch events
+        scrollTrigger: {
+            trigger: ".skills-section",
+            start: "top bottom", // Start animation when the section enters the viewport
+            end: "bottom top", // End animation when the section leaves the viewport
+            scrub: false, // Disable scrubbing to prevent interference
+            invalidateOnRefresh: true, // Recalculate animation on resize
+            markers: false // Set to true for debugging (shows start/end markers)
+        },
+        // Use requestAnimationFrame for smoother animations
+        onUpdate: function() {
+            requestAnimationFrame(() => {
+                this.progress(); // Force update on every frame
+            });
+        }
     });
 }
 
-// Ensure animation runs on load
+// Run on page load and resize
 adjustAnimation();
-
-// Only adjust animation **after** resize stops (prevents frequent resets)
-let resizeTimer;
-window.addEventListener("resize", () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(adjustAnimation, 200);
-});
-
+window.addEventListener("resize", adjustAnimation);
 
