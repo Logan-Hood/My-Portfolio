@@ -1160,8 +1160,8 @@ footer {
 }
 
 .skill-img {
-    width: 100%; /* Full width on mobile */
-    max-width: 750px; /* Limit maximum width */
+    width: 1000px; /* Full width on mobile */
+    max-width: 1000px; /* Limit maximum width */
     height: auto;
 }
 
@@ -1172,7 +1172,7 @@ footer {
     }
 
     .skill-img {
-        width: 750px; /* Fixed width for tablet */
+        width: 1000px; /* Fixed width for tablet */
     }
 }
 
@@ -1183,6 +1183,6 @@ footer {
     }
 
     .skill-img {
-        width: 750px; /* Fixed width for desktop */
+        width: 1000px; /* Fixed width for desktop */
     }
 }
