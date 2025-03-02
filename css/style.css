@@ -58,17 +58,6 @@ button {
     transition: background 0.3s ease, transform 0.2s ease;
 }
 
-/* Button Hover Effects */
-button:hover {
-    outline: 2px solid var(--primary-green);
-    transform: scale(1.05); /* Slight pop-out effect */
-}
-
-button:focus {
-    outline: 2px solid var(--primary-cyan);
-    outline-offset: 2px;
-    border-radius: 125px;
-}
 
 /* Reset styles */
 * {
@@ -189,6 +178,14 @@ body.menu-open {
     padding: 20px;
 }
 
+/* Logo */
+.logo {
+    text-align: center;
+    align-items: start;
+    justify-content: start;
+}
+
+
 /* Hamburger Button */
 .nav-toggle {
     font-size: 48px;
@@ -196,6 +193,9 @@ body.menu-open {
     border: none;
     color: white;
     cursor: pointer;
+    text-align: right;
+    align-items: end;
+    justify-content: end;
 }
 
 /* NAV MENU */
@@ -219,21 +219,32 @@ body.menu-open {
     left: 0;
 }
 
-/* Close Button */
+/* Close Button Base Styles */
 .nav-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    color: #fff;
+}
+
+/* Ensure only the "X" changes color */
+.nav-close span {
+    display: inline-block; /* Ensures animation applies correctly */
+    animation: colorChange 2s infinite alternate;
     position: absolute;
     top: 36px;
     right: 36px;
     font-size: 48px;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    animation: colorChange 10s infinite;
-    text-align: end;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-radius: 100px;
 }
 
-/* Color Changing Animation for 'X' Button */
+/* Color Changing Animation for 'X' */
 @keyframes colorChange {
     0% { color: #fff; }
     25% { color: #FF00FF; }
@@ -242,6 +253,7 @@ body.menu-open {
     100% { color: #EBBA0F; }
 }
 
+ 
 
 /* NAV LINKS */
 .nav-menu ul {
