@@ -123,34 +123,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-// Register ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
-
-// Ensure ScrollTrigger is registered
-gsap.registerPlugin(ScrollTrigger);
-
 function adjustAnimation() {
     let movementRange = window.innerWidth <= 768 ? 250 : 500;
 
+    // Kill any existing animation before starting a new one
+    gsap.killTweensOf(".skill-img");
+
+    // Set initial position outside of the viewport
     gsap.set(".skill-img", { x: -movementRange });
 
+    // Animate images smoothly back and forth
     gsap.to(".skill-img", {
         x: movementRange,
         duration: 6,
         yoyo: true,
         repeat: -1,
         ease: "power1.inOut",
-        stagger: 1.5,
-        scrollTrigger: {
-            trigger: ".skills-section",
-            start: "top bottom",
-            end: "bottom top",
-            scrub: false,
-            invalidateOnRefresh: true,
-        }
+        stagger: 1.5
     });
 }
 
+// Ensure animation runs on load
 adjustAnimation();
-window.addEventListener("resize", adjustAnimation);
+
+// Only adjust animation **after** resize stops (prevents frequent resets)
+let resizeTimer;
+window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(adjustAnimation, 200);
+});
+
 
