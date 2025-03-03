@@ -185,6 +185,11 @@ body.menu-open {
     justify-content: start;
 }
 
+a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit the text color */
+}
+
 
 /* Hamburger Button */
 .nav-toggle {
@@ -1198,3 +1203,191 @@ footer {
         width: 1000px; /* Fixed width for desktop */
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Full-Screen Welcome Pop-up */
+.welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Keeps it on top */
+}
+
+/* Wrapper for Images */
+.welcome-content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main Pipe Image */
+.pipe {
+    max-width: 1200px;
+    width: 90%; /* Scales down on smaller screens */
+    height: auto;
+}
+
+/* Spinning Wheel */
+.wheel {
+    position: absolute; /* Overlaps the pipe */
+    width: 250px;
+    height: 250px;
+    animation: spin 2s linear infinite; /* Spins continuously */
+}
+
+/* Spin Animation */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Scaling */
+@media (max-width: 600px) {
+    .wheel {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+
+/* Transition Background */
+.welcome-screen.transition {
+    background: #333333;
+    transition: background 1s ease-in-out;
+    /* Additional Background Transitions */
+
+}
+
+.welcome-screen.bg-red { background: #BE0000; transition: background 1s ease-in-out; }
+.welcome-screen.bg-gray { background: #A1A1A1; transition: background 1s ease-in-out; }
+.welcome-screen.bg-blue { background: #1F51FF; transition: background 1s ease-in-out; }
+
+
+
+
+/* Slower Spin Animation */
+@keyframes slow-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Transition background back to black */
+.welcome-screen.bg-black {
+    background: #000;
+    transition: background 1s ease-in-out;
+}
+
+/* Hide pipe image */
+.pipe.hidden {
+    display: none;
+}
+
+/* Wheel rolls off to the right */
+.wheel.roll-off {
+    position: absolute;
+    animation: rollAway 3s linear forwards;
+}
+
+@keyframes rollAway {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
+    100% {
+        transform: translateX(100vw) rotate(720deg); /* Rolls off to the right */
+    }
+}
+
+
+
+
+/* Wheels start off-screen left and roll to the right */
+.rolling-wheel {
+    position: absolute;
+    left: -150px; /* Start far off-screen */
+    top: 40%; /* Y-axis stays constant at 0 */
+    animation: rollAcross 3s linear forwards;
+}
+
+/* Wheels move across while spinning */
+@keyframes rollAcross {
+    0% {
+        transform: translateX(-150px) rotate(0deg);
+    }
+    100% {
+        transform: translateX(100vw) rotate(720deg); /* Moves off-screen right */
+    }
+}
+
+
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+

@@ -162,3 +162,85 @@ adjustAnimation();
 window.addEventListener("resize", adjustAnimation);
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+setTimeout(() => {
+    document.querySelector(".welcome-screen").classList.add("transition");
+    document.querySelector(".wheel").src = "images/wheel1.png";
+    document.querySelector(".wheel").style.animationDuration = "4s";
+}, 1000);
+
+setTimeout(() => {
+    document.querySelector(".welcome-screen").classList.add("bg-red");
+    document.querySelector(".wheel").src = "images/wheel2.png";
+    document.querySelector(".pipe").src = "images/pipe2.png";
+}, 2000);
+
+setTimeout(() => {
+    document.querySelector(".welcome-screen").classList.add("bg-gray");
+    document.querySelector(".wheel").src = "images/wheel3.png";
+    document.querySelector(".pipe").src = "images/pipe3.png";
+}, 3000);
+
+setTimeout(() => {
+    document.querySelector(".welcome-screen").classList.add("bg-blue");
+    document.querySelector(".wheel").src = "images/wheel4.png";
+    document.querySelector(".pipe").src = "images/pipe4.png";
+}, 4000);
+
+setTimeout(() => {
+    document.querySelector(".wheel").classList.add("roll-off");
+}, 5000); // Delayed roll-off so wheel keeps spinning first
+
+setTimeout(() => {
+    document.querySelector(".welcome-screen").classList.add("bg-black");
+    document.querySelector(".pipe").classList.add("hidden");
+}, 7000); // Background to black, hide pipe
+
+setTimeout(() => {
+    document.querySelector(".welcome-screen").classList.add("fade-out");
+}, 7000); // Start fade-out
+
+// Instead of redirecting, hide the welcome screen and reveal main content
+setTimeout(() => {
+    document.querySelector(".wheel").style.animation = "none";
+    document.querySelector(".pipe").style.animation = "none";
+    
+    document.querySelector(".welcome-screen").style.display = "none"; // Hide welcome screen
+    document.querySelector(".main-content").classList.remove("hidden"); // Show main content
+}, 8000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
