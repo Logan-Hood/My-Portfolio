@@ -1303,12 +1303,13 @@ footer {
 @media (min-width: 1024px) {
     .wheel {
     position: absolute; /* Overlaps the pipe */
-    top: -70%;
+    top: -50%;
     }
 }
 
 
-/* Spin Animation */
+
+
 @keyframes spin {
     from {
         transform: rotate(0deg);
@@ -1317,6 +1318,12 @@ footer {
         transform: rotate(360deg);
     }
 }
+
+/* Apply the same animation to all spinning elements */
+.spin-element {
+    animation: spin 8s linear infinite; /* Double the duration to slow it down */
+}
+
 
 /* Responsive Scaling */
 @media (max-width: 600px) {
@@ -1342,15 +1349,6 @@ footer {
 
 
 
-/* Slower Spin Animation */
-@keyframes slow-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
 
 
 /* Transition background back to black */
