@@ -1303,7 +1303,7 @@ footer {
 @media (min-width: 1024px) {
     .wheel {
     position: absolute; /* Overlaps the pipe */
-    top: -50%;
+    top: -25%;
     }
 }
 
