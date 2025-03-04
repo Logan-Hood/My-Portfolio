@@ -12,6 +12,7 @@
 
     --text-color: #fff;
     --background-color: #000;
+    --secondary-background-color: #333;
 
     /* Fonts */
     --font-header: "Punk Kid", sans-serif; /* Main header font */
@@ -1810,22 +1811,26 @@ body.no-scroll {
 
 
 
-.preview-selector-container {
+/* Mobile-first base styles */
+.project-page {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
 }
 
-.preview-container {
-    transform: translateY(0%); /* Ensures it moves up relative to itself */
+.preview-selector-container {
+    display: flex;
+    flex-direction: column; /* Stack vertically on mobile */
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
 }
-
 
 .wheel-container {
-    width: 25%; /* Adjust size as needed */
-    height: 25%;
+    width: 80%; /* Smaller wheel on mobile */
+    max-width: 200px;
 }
 
 #project-wheel {
@@ -1833,54 +1838,39 @@ body.no-scroll {
     transition: transform 0.5s ease-in-out;
 }
 
+.project-btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 150px;
+}
 
-.left-arrow, .right-arrow {
-    position: relative; /* Keeps them within the flex container */
-    cursor: pointer;
-    font-size: 5rem;
-    color: white;
-    padding: 10px;
+.project-btns button {
     background: none;
     border: none;
-}
-
-/* Space them further apart */
-.preview-selector-container {
-    gap: 70px; /* Increase space between elements */
-}
-
-button:hover {
-    color: #F29755;
-}
-
-button {
-    background: none;
-    border: none;
-    font-size: 2rem;
+    font-size: 1.5rem;
     cursor: pointer;
-    color: white;
+    color: #00FF00;
     padding: 10px;
+    margin-bottom: 16px;
 }
 
-button:hover {
+.project-btns button:hover {
     color: #FF007F;
 }
 
-
 .preview-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
+    flex-direction: column; /* Stack projects vertically on mobile */
+    gap: 20px;
 }
 
 .project {
     border: solid white 3px;
     background-color: #333;
     border-radius: 25px;
-    width: 80%; /* Keeps the project sections well-sized */
-    max-width: 1200px; /* Prevents them from being too wide on large screens */
-    padding: 20px; /* Adds some inner spacing */
+    width: 100%; /* Full width on mobile */
+    padding: 20px;
     text-align: center;
 }
 
@@ -1893,13 +1883,124 @@ button:hover {
 }
 
 .project h1 {
-    line-height: 1.0; /* Ensures tighter spacing */
+    line-height: 1.0;
 }
 
 .project p {
-    line-height: 1.4; /* Adjusts readability */
+    line-height: 1.4;
 }
 
+/* Media queries for tablets and larger screens */
+@media (min-width: 768px) {
 
+    .project-page-contents {
+        display: flex;
+        flex-direction: row;
+        gap: 32px;
+    }
+
+    .wheel-container {
+        width: 340px; /* Larger wheel on tablets and desktops */
+        max-width: none;
+        height: 100%;
+    }
+
+    .preview-container {
+        flex-direction: row; /* Display projects in a row */
+        flex-wrap: wrap; /* Allow wrapping for multiple projects */
+        justify-content: center;
+    }
+
+    .project {
+        width: 100%; /* Two projects per row on tablets */
+        max-width: 340px;
+    }
+
+
+}
+
+/* Media queries for desktops */
+@media (min-width: 1024px) {
+     .project-page {
+        display: flex;
+        margin-top: 32px;
+        flex-direction: column;
+    }
+
+    .preview-selector-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+.project-page-contents {
+    display: flex;
+    flex: row;
+    margin-top: 32px;
+    justify-content: center;
+}
+
+    .wheel-container {
+        width: 100%; /* Adjust size as needed */
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    
+    #project-wheel {
+        transition: transform 0.5s ease-in-out;
+        width: 600px;
+    }  
+ 
+    
+    .project-btns button {
+        background: none;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+        color: #00FF00;
+        padding: 10px;
+    }
+    
+    .project-btns button:hover {
+        color: #FF007F;
+    }
+    
+    .preview-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .project {
+        border: solid white 3px;
+        background-color: #333;
+        border-radius: 25px;
+        width: 80%; /* Keeps the project sections well-sized */
+        max-width: 1200px; /* Prevents them from being too wide on large screens */
+        padding: 20px; /* Adds some inner spacing */
+        text-align: center;
+    }
+    
+    .project {
+        display: none; /* Hide all projects by default */
+    }
+
+    .project:first-child {
+        display: block; /* Show only the first project initially */
+    }
+    
+    .project h1 {
+        line-height: 1.0; /* Ensures tighter spacing */
+    }
+    
+    .project p {
+        line-height: 1.4; /* Adjusts readability */
+    }
+
+}
 
 
