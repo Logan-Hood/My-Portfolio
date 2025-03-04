@@ -67,42 +67,7 @@ gsap.from(".hero h1", {
 
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    const btnContainer = document.querySelector(".btn-container");
-    const mainBtn = document.querySelector(".contact-btn");
 
-    // Create duplicate buttons
-    const duplicate1 = document.createElement("button");
-    duplicate1.classList.add("duplicate-btn", "one");
-    duplicate1.innerText = "Contact Me";
-
-    const duplicate2 = document.createElement("button");
-    duplicate2.classList.add("duplicate-btn", "two");
-    duplicate2.innerText = "Contact Me";
-
-    const duplicate3 = document.createElement("button");
-    duplicate3.classList.add("duplicate-btn", "three");
-    duplicate3.innerText = "Contact Me";
-
-    // Append duplicates to container
-    btnContainer.appendChild(duplicate1);
-    btnContainer.appendChild(duplicate2);
-    btnContainer.appendChild(duplicate3);
-
-    // Show duplicates on hover
-    mainBtn.addEventListener("mouseover", function () {
-        duplicate1.style.display = "block";
-        duplicate2.style.display = "block";
-        duplicate3.style.display = "block";
-    });
-
-    // Hide duplicates when mouse leaves
-    btnContainer.addEventListener("mouseleave", function () {
-        duplicate1.style.display = "none";
-        duplicate2.style.display = "none";
-        duplicate3.style.display = "none";
-    });
-});
 
 
 
@@ -183,51 +148,71 @@ window.addEventListener("resize", adjustAnimation);
 
 
 
-setTimeout(() => {
-    document.querySelector(".welcome-screen").classList.add("transition");
-    document.querySelector(".wheel").src = "images/wheel1.png";
-    document.querySelector(".wheel").style.animationDuration = "4s";
-}, 1000);
+document.addEventListener("DOMContentLoaded", function () {
+    const welcomeScreen = document.querySelector(".welcome-screen");
+    const mainContent = document.querySelector(".main-content");
 
-setTimeout(() => {
-    document.querySelector(".welcome-screen").classList.add("bg-red");
-    document.querySelector(".wheel").src = "images/wheel2.png";
-    document.querySelector(".pipe").src = "images/pipe2.png";
-}, 2000);
+    // Check if the welcome screen was already seen OR if the user clicked the logo
+    if (localStorage.getItem("welcomeSeen") || sessionStorage.getItem("logoClicked")) {
+        welcomeScreen.style.display = "none"; // Hide welcome screen
+        mainContent.classList.remove("hidden"); // Show main content
+        return; // Stop the welcome animations from running
+    }
 
-setTimeout(() => {
-    document.querySelector(".welcome-screen").classList.add("bg-gray");
-    document.querySelector(".wheel").src = "images/wheel3.png";
-    document.querySelector(".pipe").src = "images/pipe3.png";
-}, 3000);
+    // Run the welcome screen animation sequence only if it's the first visit
+    setTimeout(() => {
+        welcomeScreen.classList.add("transition");
+        document.querySelector(".wheel").src = "images/wheel1.png";
+        document.querySelector(".wheel").style.animationDuration = "4s";
+    }, 1000);
 
-setTimeout(() => {
-    document.querySelector(".welcome-screen").classList.add("bg-blue");
-    document.querySelector(".wheel").src = "images/wheel4.png";
-    document.querySelector(".pipe").src = "images/pipe4.png";
-}, 4000);
+    setTimeout(() => {
+        welcomeScreen.classList.add("bg-red");
+        document.querySelector(".wheel").src = "images/wheel2.png";
+        document.querySelector(".pipe").src = "images/pipe2.png";
+    }, 2000);
 
-setTimeout(() => {
-    document.querySelector(".wheel").classList.add("roll-off");
-}, 5000); // Delayed roll-off so wheel keeps spinning first
+    setTimeout(() => {
+        welcomeScreen.classList.add("bg-gray");
+        document.querySelector(".wheel").src = "images/wheel3.png";
+        document.querySelector(".pipe").src = "images/pipe3.png";
+    }, 3000);
 
-setTimeout(() => {
-    document.querySelector(".welcome-screen").classList.add("bg-black");
-    document.querySelector(".pipe").classList.add("hidden");
-}, 7000); // Background to black, hide pipe
+    setTimeout(() => {
+        welcomeScreen.classList.add("bg-blue");
+        document.querySelector(".wheel").src = "images/wheel4.png";
+        document.querySelector(".pipe").src = "images/pipe4.png";
+    }, 4000);
 
-setTimeout(() => {
-    document.querySelector(".welcome-screen").classList.add("fade-out");
-}, 7000); // Start fade-out
+    setTimeout(() => {
+        document.querySelector(".wheel").classList.add("roll-off");
+    }, 5000);
 
-// Instead of redirecting, hide the welcome screen and reveal main content
-setTimeout(() => {
-    document.querySelector(".wheel").style.animation = "none";
-    document.querySelector(".pipe").style.animation = "none";
-    
-    document.querySelector(".welcome-screen").style.display = "none"; // Hide welcome screen
-    document.querySelector(".main-content").classList.remove("hidden"); // Show main content
-}, 8000);
+    setTimeout(() => {
+        welcomeScreen.classList.add("bg-black");
+        document.querySelector(".pipe").classList.add("hidden");
+    }, 7000);
+
+    setTimeout(() => {
+        welcomeScreen.classList.add("fade-out");
+    }, 7000);
+
+    setTimeout(() => {
+        document.querySelector(".wheel").style.animation = "none";
+        document.querySelector(".pipe").style.animation = "none";
+
+        welcomeScreen.style.display = "none"; // Hide welcome screen
+        mainContent.classList.remove("hidden"); // Show main content
+
+        // Store in sessionStorage so the welcome screen never shows again
+        sessionStorageStorage.setItem("welcomeSeen", "true");
+    }, 8000);
+});
+
+// Function to disable the welcome screen when the logo is clicked
+function disableWelcomeScreen() {
+    sessionStorage.setItem("logoClicked", "true");
+}
 
 
 
@@ -244,3 +229,170 @@ setTimeout(() => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// about.html
+document.addEventListener("DOMContentLoaded", function () {
+    const inspireLink = document.getElementById("inspire-link");
+    const overlay = document.getElementById("inspiration-overlay");
+    const closeBtn = document.querySelector(".close-btn");
+    const countdownElement = document.getElementById("countdown");
+    const youtubeVideo = document.getElementById("youtube-video");
+    const messageElement = document.querySelector(".overlay-content p");
+    let countdown;
+
+    // Open overlay and disable scrolling
+    inspireLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        overlay.style.opacity = "1";
+        overlay.style.visibility = "visible";
+        document.body.classList.add("no-scroll"); // Disable scrolling
+        startCountdown();
+    });
+
+    // Close overlay and re-enable scrolling
+    function closeOverlay() {
+        overlay.style.opacity = "0";
+        overlay.style.visibility = "hidden";
+        document.body.classList.remove("no-scroll"); // Enable scrolling
+        resetCountdown();
+    }
+
+    closeBtn.addEventListener("click", closeOverlay);
+    overlay.addEventListener("click", function (event) {
+        if (event.target === overlay) {
+            closeOverlay();
+        }
+    });
+
+    function startCountdown() {
+        let timeLeft = 5;
+        countdown = setInterval(() => {
+            countdownElement.textContent = timeLeft;
+            timeLeft--;
+
+            if (timeLeft < 0) {
+                clearInterval(countdown);
+                countdownElement.classList.add("hidden");
+                messageElement.classList.add("hidden");
+                youtubeVideo.style.display = "block";
+                youtubeVideo.src = "https://www.youtube.com/embed/7YuQJP3WMqY?autoplay=1&mute=1"; // Autoplay video
+            }
+        }, 1000);
+    }
+
+    function resetCountdown() {
+        clearInterval(countdown);
+        countdownElement.textContent = "5";
+        countdownElement.classList.remove("hidden");
+        messageElement.classList.remove("hidden");
+        youtubeVideo.style.display = "none";
+        youtubeVideo.src = ""; // Stop video
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const imagePaths = [
+        "images/trick1.png",
+        "images/trick2.png",
+        "images/trick3.png",
+        "images/trick4.png",
+        "images/trick5.png",
+        "images/trick6.png",
+        "images/trick7.png",
+        "images/trick8.png",
+        "images/trick9.png"
+    ];
+
+    let currentIndex = 0;
+    let forward = true; // Controls direction (forward/reverse)
+    const heroImage = document.getElementById("hero-img");
+
+    function changeImage() {
+        heroImage.src = imagePaths[currentIndex];
+
+        if (forward) {
+            currentIndex++;
+            if (currentIndex >= imagePaths.length) {
+                currentIndex = imagePaths.length - 2; // Start reversing
+                forward = false;
+            }
+        } else {
+            currentIndex--;
+            if (currentIndex < 0) {
+                currentIndex = 1; // Start moving forward again
+                forward = true;
+            }
+        }
+    }
+
+    setInterval(changeImage, 150); // Change image every .5 seconds
+});

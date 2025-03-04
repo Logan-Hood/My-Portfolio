@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Logan Hood Designs - Portfolio showcasing UX projects, Github repositories, and more.">
+    <title>Logan Hood Designs</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="preload" href="PunkKid.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" onclick="disableWelcomeScreen()">
+                <h1 class="logo">LOGAN HOOD</h1>
+            </a>
+            <button class="nav-toggle" aria-label="Open navigation menu">
+                ☰
+            </button>
+        </div>
+    
+        <nav class="nav-menu hidden">
+            <button class="nav-close" aria-label="Close navigation menu">
+                <span>✖</span>
+            </button>
+            <ul>
+                <li><a href="projects.html" class="btn yellow" aria-current="page">UX Projects</a></li>
+                <li><a href="https://github.com/Logan-Hood" target="_blank" class="btn purple">Github</a></li>
+                <li><a href="about.html" class="btn green">About Me</a></li>
+                <li><a href="https://drive.google.com/file/d/1ppzVe80gEkLl2M6mwQrkVgSKnKD2JGEr/view?usp=drive_link" target="_blank" class="btn red">Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="about-container">
+            <!-- Profile Image -->
+            <img src="images/profile-pic.png" alt="Logan Hood" class="profile-img">
+        
+            
+            <section class="text-n-btns">
+            <!-- About Text -->
+            <div class="about-text">
+                <p style>
+                    I’m Logan Hood, a UX/UI designer with a background in B2B sales. For over a decade, I focused on building relationships, solving problems, and helping businesses meet their goals. Along the way, I learned how to listen, ask the right questions, and turn insights into solutions—and that’s exactly what I bring to my work as a designer.
+                <br> <br>
+                    Now, I use those skills to create intuitive, user-centered designs that not only look great but also work seamlessly. I’m comfortable conducting user research, collaborating with stakeholders, and turning ideas into wireframes and prototypes. With a mix of business strategy and design thinking, I’m passionate about building experiences that make sense for both users and businesses.
+                <br> <br>
+                    Outside of design, I train jiu jitsu, which has taught me discipline, adaptability, and how to break down complex problems—skills I carry into my design work. But when I’m not at my desk or on the mats, you’ll probably find me walking through the city or hiking up a trail while petting every dog I come across.
+                </p>
+            </div>
+        
+            <!-- Links (Contact, Projects, GitHub, etc.) -->
+             <section class="link-section">
+            <h1>Let's Connect</h1>
+            <div class="links-container">
+                <a href="contact.html"><img src="images/contact-deck.png" alt="Contact Me"></a>
+                <a href="#" id="inspire-link"><img src="images/inspire-deck.png" alt="This Design’s Inspiration"></a>
+                <a href="projects.html"><img src="images/ux-deck.png" alt="UX Projects"></a>
+                <a href="https://github.com/Logan-Hood" target="_blank"><img src="images/gh-deck.png" alt="GitHub"></a>
+                <a href="https://drive.google.com/file/d/1ppzVe80gEkLl2M6mwQrkVgSKnKD2JGEr/view?usp=drive_link" target="_blank"><img src="images/resume-deck.png" alt="Resume"></a>
+                <a href="https://www.linkedin.com/in/logan-hood-9b647796/" target="_blank"><img src="images/li-deck.png" alt="LinkedIn"></a>
+            </div>
+            </section>
+            </section>
+        </div>
+
+        <!-- Inspiration Overlay -->
+        <div class="overlay" id="inspiration-overlay">
+            <div class="overlay-content">
+                <p>Check your volume and your surroundings and get ready to shred in...</p>
+                <h1 id="countdown">5</h1>
+                <iframe id="youtube-video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:none;"></iframe>
+                <span class="close-btn">&times;</span>
+            </div>
+        </div>
+        
+        
+
+    </main>
+
+    <footer>
+        <div class="footer-buttons">
+            <a href="contact.html" class="footer-btn yellow">Contact</a>
+            <a href="https://github.com/yourprofile" target="_blank" class="footer-btn cyan">Github</a>
+            <a href="https://drive.google.com/file/d/1ppzVe80gEkLl2M6mwQrkVgSKnKD2JGEr/view?usp=drive_link" target="_blank" class="footer-btn pink">Resume</a>
+            <a href="https://linkedin.com/in/yourprofile" target="_blank" class="footer-btn orange">LinkedIn</a>
+        </div>
+        <p class="footer-text">Designed & Developed
+            <br>by Logan Hood
+            <br>2025
+        </p>
+    </footer>
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>');</script>
+    <script src="js/index.js"></script>
+</body>
+</html>
