@@ -396,3 +396,72 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setInterval(changeImage, 150); // Change image every .5 seconds
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const wheel = document.getElementById("project-wheel");
+    const rightArrow = document.getElementById("right-arrow");
+    const leftArrow = document.getElementById("left-arrow");
+    const projects = document.querySelectorAll(".project");
+
+    let currentAngle = 0; // Start at 0 degrees
+    const rotationValues = [0, 72, 144, 216, 288]; // Rotation angles corresponding to projects
+
+    function updateArrows() {
+        leftArrow.style.visibility = currentAngle % 360 === 0 ? "hidden" : "visible";
+    }
+
+    function updateProjects() {
+        projects.forEach((project, index) => {
+            project.style.display = rotationValues.indexOf(currentAngle % 360) === index ? "block" : "none";
+        });
+    }
+
+    rightArrow.addEventListener("click", function () {
+        currentAngle = (currentAngle + 72) % 360;
+        wheel.style.transform = `rotate(${currentAngle}deg)`;
+        updateProjects();
+        updateArrows();
+    });
+
+    leftArrow.addEventListener("click", function () {
+        currentAngle = (currentAngle - 72 + 360) % 360;
+        wheel.style.transform = `rotate(${currentAngle}deg)`;
+        updateProjects();
+        updateArrows();
+    });
+
+    updateProjects(); // Initialize projects visibility
+    updateArrows(); // Set initial arrow visibility
+});
