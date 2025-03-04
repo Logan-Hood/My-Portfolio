@@ -288,7 +288,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 countdownElement.classList.add("hidden");
                 messageElement.classList.add("hidden");
                 youtubeVideo.style.display = "block";
-                youtubeVideo.src = "https://www.youtube.com/embed/7YuQJP3WMqY?autoplay=1&mute=1"; // Autoplay video
+                youtubeVideo.src = "https://www.youtube.com/embed/7YuQJP3WMqY?autoplay=1"; // Autoplay video
             }
         }, 1000);
     }
