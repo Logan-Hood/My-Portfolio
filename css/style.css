@@ -1623,9 +1623,8 @@ body.no-scroll {
 
 @media (min-width: 1024px) {
     #youtube-video {
-    min-width: 1150px;
-    max-width: 1350px;
-    height: 760px;}
+    width: 1350px;
+    height: 645px;}
 }
 
 
