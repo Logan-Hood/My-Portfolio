@@ -1573,12 +1573,17 @@ body.no-scroll {
 
 .overlay-content {
     background: black;
-    padding: 20px;
-    max-width: 80%;
-    text-align: center;
-    border-radius: 10px;
-    align-items: center;
-    justify-content: center;
+    .overlay-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Ensures all children, including the video, are centered */
+        justify-content: center;
+        text-align: center;
+        width: 90%; /* Keeps content from being too wide */
+        max-width: 700px; /* Prevents oversized elements */
+        margin: 0 auto; /* Centers the whole content block */
+    }
+    
 }
 
 .overlay-content p {
@@ -1605,7 +1610,6 @@ body.no-scroll {
 #youtube-video {
     width: 350px;
     height: 197px;
-    align-items: center;
 }
 
 
