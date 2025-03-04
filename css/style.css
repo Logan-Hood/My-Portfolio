@@ -238,7 +238,7 @@ a {
 /* Ensure only the "X" changes color */
 .nav-close span {
     display: inline-block; /* Ensures animation applies correctly */
-    animation: colorChange 2s infinite alternate;
+    animation: colorChange2 2s infinite alternate;
     position: absolute;
     top: 36px;
     right: 36px;
@@ -251,7 +251,7 @@ a {
 }
 
 /* Color Changing Animation for 'X' */
-@keyframes colorChange {
+@keyframes colorChange2 {
     0% { color: #fff; }
     25% { color: #FF00FF; }
     50% { color: #00FF00; }
@@ -259,7 +259,8 @@ a {
     100% { color: #EBBA0F; }
 }
 
- 
+
+
 
 /* NAV LINKS */
 .nav-menu ul {
@@ -1591,14 +1592,23 @@ body.no-scroll {
 }
 
 
-.overlay .close-btn {
+.overlay-content span {
+    display: inline-block; /* Ensures animation applies correctly */
+    animation: colorChange2 2s infinite alternate;
     position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 30px;
+    top: 36px;
+    right: 36px;
+    font-size: 48px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-radius: 100px;
     cursor: pointer;
-    color: white;
 }
+
+
+
 
 #countdown {
     font-size: 20rem;
