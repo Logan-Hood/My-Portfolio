@@ -943,7 +943,7 @@ footer {
 .learn-more {
     font-family: "Bangers", serif;
     font-size: 18px; /* Smaller font size for mobile */
-    font-weight: bold;
+    font-weight: 100;
     text-align: center;
     padding: 8px 16px;
     width: 80%; /* Adjust button width */
@@ -1436,9 +1436,10 @@ margin-bottom: 32px;
 }
 
 .about-text p {
-    font-family: var(--font-secondary-header);
+    font-family: "inter", sans-serif;
     line-height: 1.5;
     padding: 0 20px;
+    text-align: left;
 }
 
 
@@ -1870,7 +1871,7 @@ body.no-scroll {
     background-color: #333;
     border-radius: 25px;
     width: 100%; /* Full width on mobile */
-    padding: 20px;
+    padding: 12px;
     text-align: center;
 }
 
@@ -1887,7 +1888,8 @@ body.no-scroll {
 }
 
 .project p {
-    line-height: 1.4;
+    font-family: "inter", sans-serif;
+
 }
 
 /* Media queries for tablets and larger screens */
@@ -1912,6 +1914,15 @@ body.no-scroll {
         max-width: 650px;
     }
 
+    .project h1,
+    .project p,
+    .project a {
+        padding: 12px;
+    }
+    .project p {
+        font-family: "inter", sans-serif;
+        margin-bottom: 8px;
+    }
 
 }
 
@@ -1977,7 +1988,6 @@ body.no-scroll {
         border-radius: 25px;
         width: 80%; /* Keeps the project sections well-sized */
         max-width: 1200px; /* Prevents them from being too wide on large screens */
-        padding: 20px; /* Adds some inner spacing */
         text-align: center;
     }
     
@@ -1989,12 +1999,15 @@ body.no-scroll {
         display: block; /* Show only the first project initially */
     }
     
-    .project h1 {
-        line-height: 1.0; /* Ensures tighter spacing */
+    .project h1,
+    .project p,
+    .project a {
+        padding: 12px;
     }
     
     .project p {
-        line-height: 1.4; /* Adjusts readability */
+        font-family: "inter", sans-serif;
+        margin-bottom: 8px;
     }
 
 }
