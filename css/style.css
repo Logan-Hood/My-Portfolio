@@ -1842,7 +1842,6 @@ body.no-scroll {
 .project-btns {
     display: flex;
     flex-direction: row;
-    justify-content: center;
     gap: 150px;
 }
 
@@ -1962,7 +1961,13 @@ body.no-scroll {
         width: 600px;
     }  
  
-    
+    .project-btns {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 150px;
+    }
+
     .project-btns button {
         background: none;
         border: none;
