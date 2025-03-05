@@ -1834,7 +1834,7 @@ body.no-scroll {
 }
 
 #project-wheel {
-    width: 100%;
+    width: 60%;
     transition: transform 0.5s ease-in-out;
 }
 
@@ -1893,14 +1893,10 @@ body.no-scroll {
 /* Media queries for tablets and larger screens */
 @media (min-width: 768px) {
 
-    .project-page-contents {
-        display: flex;
-        flex-direction: row;
-        gap: 32px;
-    }
+
 
     .wheel-container {
-        width: 340px; /* Larger wheel on tablets and desktops */
+        width: 250px; /* Larger wheel on tablets and desktops */
         max-width: none;
         height: 100%;
     }
@@ -1913,7 +1909,7 @@ body.no-scroll {
 
     .project {
         width: 100%; /* Two projects per row on tablets */
-        max-width: 340px;
+        max-width: 650px;
     }
 
 
