@@ -6,7 +6,7 @@
     --primary-magenta: #FF00FF;
     --primary-pink: #FF007F;
     --primary-cyan: #00FFFF;
-    --primary-cyan: #007FFF;
+    --primary-blue: #007FFF;
     --primary-orange: #FF6600;
     --primary-red: #BE0000;
 
@@ -1812,105 +1812,183 @@ body.no-scroll {
 
 
 
-/* Mobile-first base styles */
+/* Base styles for mobile */
 .project-page {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    padding: 20px;
+    background-color: var(--background-color); /* Black background */
+    color: var(--text-color); /* White text */
 }
 
-.preview-selector-container {
+.tab-nav {
     display: flex;
-    flex-direction: column; /* Stack vertically on mobile */
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-    justify-content: center;
+    flex-direction: column; /* Stack tabs vertically on mobile */
+    width: 100%;
+    background-color: var(--secondary-background-color); /* Dark gray background */
+    border-radius: 10px 10px 0 0;
+    overflow-x: auto; /* Allow horizontal scrolling if tabs overflow */
 }
 
-.wheel-container {
-    width: 80%; /* Smaller wheel on mobile */
-    max-width: 200px;
-}
-
-#project-wheel {
-    width: 60%;
-    transition: transform 0.5s ease-in-out;
-}
-
-.project-btns {
-    display: flex;
-    flex-direction: row;
-    gap: 150px;
-}
-
-.project-btns button {
-    background: none;
+.tab-link {
+    background-color: var(--secondary-background-color); /* Dark gray background */
     border: none;
-    font-size: 1.5rem;
+    outline: none;
     cursor: pointer;
-    color: #00FF00;
-    padding: 10px;
-    margin-bottom: 16px;
-}
-
-.project-btns button:hover {
-    color: #FF007F;
-}
-
-.preview-container {
-    display: flex;
-    flex-direction: column; /* Stack projects vertically on mobile */
-    gap: 20px;
-}
-
-.project {
-    border: solid white 3px;
-    background-color: #333;
-    border-radius: 25px;
-    width: 100%; /* Full width on mobile */
-    padding: 12px;
+    padding: 15px 20px;
+    transition: 0.3s;
+    font-size: 16px;
     text-align: center;
+    color: var(--text-color); /* White text */
+    border-bottom: 2px solid transparent; /* Transparent border by default */
+    white-space: nowrap; /* Prevent text wrapping */
+    position: relative; /* For the tab shape */
+}
+
+/* Assign unique colors to each tab */
+.tab-link[data-tab="tab1"] {
+    background-color: var(--primary-blue); /* Yellow */
+    color: var(--background-color); /* Black text */
+}
+
+.tab-link[data-tab="tab2"] {
+    background-color: var(--primary-green); /* Green */
+    color: var(--background-color); /* Black text */
+}
+
+.tab-link[data-tab="tab3"] {
+    background-color: var(--primary-pink); /* Magenta */
+    color: var(--background-color); /* Black text */
+}
+
+.tab-link[data-tab="tab4"] {
+    background-color: var(--primary-cyan); /* Cyan */
+    color: var(--background-color); /* Black text */
+}
+
+.tab-link[data-tab="tab5"] {
+    background-color: var(--primary-orange); /* Orange */
+    color: var(--background-color); /* Black text */
+}
+
+/* Hover effects */
+.tab-link:hover {
+    opacity: 0.9; /* Slightly fade on hover */
+}
+
+.tab-link.active {
+    border-bottom: 2px solid var(--text-color); /* White border for active tab */
+}
+
+/* Filing cabinet tab shape */
+.tab-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 10px;
+    height: 100%;
+    background-color: inherit; /* Inherit tab color */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+}
+
+.tab-link::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 10px;
+    height: 100%;
+    background-color: inherit; /* Inherit tab color */
+    clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    border: 1px solid var(--text-color); /* White border */
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    width: 100%;
+    box-sizing: border-box; /* Ensure padding is included in width */
+    background-color: var(--secondary-background-color); /* Dark gray background */
+}
+
+.tab-content.active {
+    display: block;
 }
 
 .project {
-    display: none; /* Hide all projects by default */
+    border: solid 3px var(--text-color); /* White border */
+    background-color: var(--secondary-background-color); /* Dark gray background */
+    border-radius: 25px;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box; /* Ensure padding is included in width */
 }
 
-.project:first-child {
-    display: block; /* Show only the first project initially */
+.project h1,
+.project p,
+.project a {
+    padding: 12px;
+}
+
+.project img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
 
 .project h1 {
-    line-height: 1.0;
+    margin: 15px 0;
+    font-size: 24px;
+    color: var(--text-color); /* White heading */
 }
 
 .project p {
-    font-family: "inter", sans-serif;
-
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: var(--text-color); /* White text */
 }
 
-/* Media queries for tablets and larger screens */
+.learn-more {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary-red); /* Red button */
+    color: var(--text-color); /* White text */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.learn-more:hover {
+    background-color: var(--primary-pink); /* Pink hover effect */
+}
+
+/* Tablet styles */
 @media (min-width: 768px) {
-
-
-
-    .wheel-container {
-        width: 250px; /* Larger wheel on tablets and desktops */
-        max-width: none;
-        height: 100%;
+    .tab-nav {
+        flex-direction: row; /* Display tabs horizontally on tablet */
+        justify-content: space-around;
     }
 
-    .preview-container {
-        flex-direction: row; /* Display projects in a row */
-        flex-wrap: wrap; /* Allow wrapping for multiple projects */
-        justify-content: center;
+    .tab-link {
+        border-bottom: none; /* Remove bottom border for horizontal tabs */
+        border-right: 2px solid var(--text-color); /* White separator */
+        flex: 1; /* Distribute tabs evenly */
+    }
+
+    .tab-link:last-child {
+        border-right: none; /* Remove border for the last tab */
     }
 
     .project {
-        width: 100%; /* Two projects per row on tablets */
-        max-width: 650px;
+        max-width: 600px; /* Limit project width on tablet */
+        margin: 0 auto; /* Center the project */
     }
 
     .project h1,
@@ -1918,103 +1996,23 @@ body.no-scroll {
     .project a {
         padding: 12px;
     }
-    .project p {
-        font-family: "inter", sans-serif;
-        margin-bottom: 8px;
-    }
 
 }
 
-/* Media queries for desktops */
+/* Desktop styles */
 @media (min-width: 1024px) {
-     .project-page {
-        display: flex;
-        margin-top: 32px;
-        flex-direction: column;
+    .tab-nav {
+        max-width: 800px; /* Limit tab width on desktop */
+        margin: 0 auto; /* Center the tabs */
     }
 
-    .preview-selector-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 20px;
-    }
-    
-.project-page-contents {
-    display: flex;
-    flex: row;
-    margin-top: 32px;
-    justify-content: center;
-}
-
-    .wheel-container {
-        width: 100%; /* Adjust size as needed */
-        height: 100%;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    
-    #project-wheel {
-        transition: transform 0.5s ease-in-out;
-        width: 600px;
-    }  
- 
-    .project-btns {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 150px;
-    }
-
-    .project-btns button {
-        background: none;
-        border: none;
-        font-size: 2rem;
-        cursor: pointer;
-        color: #00FF00;
-        padding: 10px;
-    }
-    
-    .project-btns button:hover {
-        color: #FF007F;
-    }
-    
-    .preview-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
     .project {
-        border: solid white 3px;
-        background-color: #333;
-        border-radius: 25px;
-        width: 80%; /* Keeps the project sections well-sized */
-        max-width: 1200px; /* Prevents them from being too wide on large screens */
-        text-align: center;
-    }
-    
-    .project {
-        display: none; /* Hide all projects by default */
+        max-width: 800px; /* Increase project width on desktop */
     }
 
-    .project:first-child {
-        display: block; /* Show only the first project initially */
-    }
-    
     .project h1,
     .project p,
     .project a {
         padding: 12px;
     }
-    
-    .project p {
-        font-family: "inter", sans-serif;
-        margin-bottom: 8px;
-    }
-
 }
-
-
