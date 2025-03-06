@@ -1904,6 +1904,12 @@ body.no-scroll {
     clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);
 }
 
+.tab-link.active {
+    background-color: #777;
+    color: #fff;
+}
+
+
 .tab-content {
     display: none;
     padding: 20px;
