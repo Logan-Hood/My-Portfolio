@@ -1905,17 +1905,13 @@ body.no-scroll {
 }
 
 .tab-link.active {
-    background-color: #777;
+    background-color: #555;
     color: #fff;
 }
 
 
 .tab-content {
     display: none;
-    padding: 20px;
-    border: 1px solid var(--text-color); /* White border */
-    border-top: none;
-    border-radius: 0 0 10px 10px;
     width: 100%;
     box-sizing: border-box; /* Ensure padding is included in width */
     background-color: var(--secondary-background-color); /* Dark gray background */
@@ -1930,7 +1926,7 @@ body.no-scroll {
     background-color: var(--secondary-background-color); /* Dark gray background */
     border-radius: 25px;
     width: 100%;
-    padding: 20px;
+    padding: 4px;
     text-align: center;
     box-sizing: border-box; /* Ensure padding is included in width */
 }
