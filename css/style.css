@@ -1943,11 +1943,7 @@ body.no-scroll {
     border-radius: 10px;
 }
 
-.project h1 {
-    margin: 15px 0;
-    font-size: 24px;
-    color: var(--text-color); /* White heading */
-}
+
 
 .project p {
     font-family: "Inter", sans-serif;
@@ -1957,9 +1953,8 @@ body.no-scroll {
     color: var(--text-color); /* White text */
 }
 
-.learn-more {
+.learn-more2 {
     display: inline-block;
-    padding: 10px 20px;
     background-color: var(--primary-red); /* Red button */
     color: var(--text-color); /* White text */
     text-decoration: none;
@@ -1967,7 +1962,7 @@ body.no-scroll {
     transition: background-color 0.3s;
 }
 
-.learn-more:hover {
+.learn-more2:hover {
     background-color: var(--primary-pink); /* Pink hover effect */
 }
 
