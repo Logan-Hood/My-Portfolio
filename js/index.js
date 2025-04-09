@@ -444,15 +444,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
