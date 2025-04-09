@@ -911,7 +911,7 @@ footer {
 
 .popup-content p {
     font-size: 14px; /* Smaller font size for mobile */
-    font-family: 'Permanent Marker', sans-serif;
+    font-family: "inter", sans-serif;
     margin: 0; /* Remove margin */
     padding: 0; /* Remove padding */
     text-align: center;
@@ -1991,7 +1991,6 @@ body.no-scroll {
     height: auto;
     border-radius: 10px;
 }
-
 
 
 .project p {
