@@ -1775,6 +1775,7 @@ body.no-scroll {
 }
 
 .survey {
+
     border-radius: 10px;
     background-color: #f5f5f5;
     padding-left: 32px;
@@ -2061,6 +2062,7 @@ body.no-scroll {
     .project a {
         padding: 12px;
     }
+<<<<<<< HEAD
 }
 
 
@@ -2210,3 +2212,6 @@ body.no-scroll {
         max-width: 100%;
     }
 }
+=======
+}
+>>>>>>> parent of e553982 (project1 - upload 1)
