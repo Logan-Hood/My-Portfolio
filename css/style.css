@@ -185,6 +185,7 @@ body.menu-open {
     text-align: center;
     align-items: start;
     justify-content: start;
+    font-size: 48px;
 }
 
 a {
@@ -834,7 +835,6 @@ footer {
 }
 
 .section-title {
-    font-size: 36px; /* Smaller font size for mobile */
     margin-top: 60px; /* Reduced margin for mobile */
     margin-bottom: 32px;
 }
@@ -963,7 +963,6 @@ footer {
 /* Tablet Styles (min-width: 768px) */
 @media (min-width: 768px) {
     .section-title {
-        font-size: 48px; /* Larger font size for tablet */
         margin-top: 80px; /* Increased margin for tablet */
     }
 
@@ -1011,7 +1010,6 @@ footer {
 /* Desktop Styles (min-width: 1024px) */
 @media (min-width: 1024px) {
     .section-title {
-        font-size: 56px; /* Largest font size for desktop */
         margin-top: 100px; /* Largest margin for desktop */
     }
 
@@ -1100,7 +1098,6 @@ footer {
 
 .skills-section h1 {
     margin-bottom: 32px;
-    font-size: 36px; /* Smaller font size for mobile */
 }
 
 .skill-img {
@@ -1111,9 +1108,6 @@ footer {
 
 /* Tablet Styles (min-width: 768px) */
 @media (min-width: 768px) {
-    .skills-section h1 {
-        font-size: 48px; /* Larger font size for tablet */
-    }
 
     .skill-img {
         width: 1000px; /* Fixed width for tablet */
@@ -1122,9 +1116,6 @@ footer {
 
 /* Desktop Styles (min-width: 1024px) */
 @media (min-width: 1024px) {
-    .skills-section h1 {
-        font-size: 56px; /* Largest font size for desktop */
-    }
 
     .skill-img {
         width: 1000px; /* Fixed width for desktop */
